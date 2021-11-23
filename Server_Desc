@@ -1,0 +1,3 @@
+- The server will recieve the movements of the players
+- The server will continiously check the position of both players and the ball
+- If the ball has reached a specific x-y coordinate then end the game and decide the winner

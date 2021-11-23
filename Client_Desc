@@ -1,0 +1,7 @@
+- Client will contain the ping pong game
+- Each client will have a key event handler to move the boxes
+- The position of the box and the ball will be sent to the server
+
+- The game screen will be on the client side
+
+- Implement a 1 player ping pong first
