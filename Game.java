@@ -1,12 +1,13 @@
 package Client;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 public class Game {
 	private final int WIDTH = 800;
@@ -23,12 +24,20 @@ public class Game {
 		g.setFill(Color.BLACK);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
+		Ball ball = new Ball(g,200,200,10,10);
+		Timeline renderer = new Timeline(new KeyFrame(Duration.millis(80), e -> ball.moveBall(WIDTH, HEIGHT)));
+		renderer.setCycleCount(Timeline.INDEFINITE);
+		renderer.play();
+		
+		
+//		ball.render(WIDTH, HEIGHT);
+		
 		playerOnePong = new Pong(0, 210, pongWidth, pongHeight);
 		playerOnePong.draw(g);
 		
 		playerTwoPong = new Pong(WIDTH - pongWidth, 210, pongWidth, pongHeight);
 		playerTwoPong.draw(g);
-
+		
 		canvas.setFocusTraversable(true);
 		canvas.setOnKeyPressed(e -> {
 			if(e.getCode() == KeyCode.UP || e.getCode() == KeyCode.W) {
