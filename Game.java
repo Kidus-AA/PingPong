@@ -24,14 +24,6 @@ public class Game {
 		g.setFill(Color.BLACK);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
-		Ball ball = new Ball(g,200,200,10,10);
-		Timeline renderer = new Timeline(new KeyFrame(Duration.millis(80), e -> ball.moveBall(WIDTH, HEIGHT)));
-		renderer.setCycleCount(Timeline.INDEFINITE);
-		renderer.play();
-		
-		
-//		ball.render(WIDTH, HEIGHT);
-		
 		playerOnePong = new Pong(0, 210, pongWidth, pongHeight);
 		playerOnePong.draw(g);
 		
@@ -56,6 +48,11 @@ public class Game {
 				}
 			}
 		});
+		
+		Ball ball = new Ball(g,400,250,10,10);
+		Timeline renderer = new Timeline(new KeyFrame(Duration.millis(100), e -> ball.moveBall(WIDTH, HEIGHT, playerOnePong, playerTwoPong)));
+		renderer.setCycleCount(Timeline.INDEFINITE);
+		renderer.play();	
 		
 		BorderPane root = new BorderPane(canvas);
 		scene = new Scene(root, WIDTH, HEIGHT);
