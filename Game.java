@@ -1,9 +1,11 @@
 package Client;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -11,7 +13,7 @@ import javafx.util.Duration;
 
 public class Game {
 	private final int WIDTH = 800;
-	private final int HEIGHT = 500;
+	private final int HEIGHT = 600;
 	private Scene scene;
 	private Pong playerOnePong;
 	private Pong playerTwoPong;	
@@ -52,7 +54,7 @@ public class Game {
 		Ball ball = new Ball(g,400,250,10,10);
 		Timeline renderer = new Timeline(new KeyFrame(Duration.millis(100), e -> ball.moveBall(WIDTH, HEIGHT, playerOnePong, playerTwoPong)));
 		renderer.setCycleCount(Timeline.INDEFINITE);
-		renderer.play();	
+		renderer.play();
 		
 		BorderPane root = new BorderPane(canvas);
 		scene = new Scene(root, WIDTH, HEIGHT);

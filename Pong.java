@@ -8,12 +8,14 @@ public class Pong {
 	private int yCoord;
 	private int width;
 	private int height;
+	private int score;
 	
 	public Pong(int xCoord, int yCoord, int width, int height) {
 		this.xCoord = xCoord;
 		this.yCoord = yCoord;
 		this.width = width;
 		this.height = height;
+		this.score = 0;
 	}
 
 	public int getxCoord() {
@@ -30,6 +32,18 @@ public class Pong {
 
 	public int getHeight() {
 		return height;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void incrementScore() {
+		score++;
+	}
+	
+	public void resetScore() {
+		score = 0;
 	}
 	
 	public void draw(GraphicsContext g) {
